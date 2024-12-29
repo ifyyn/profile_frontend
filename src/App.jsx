@@ -13,6 +13,7 @@ import Courses from "./pages/admin/Courses";
 import Skill from "./pages/admin/Skill";
 import About from "./pages/admin/About";
 import WhatIDo from "./pages/admin/WhatIDo";
+import Login from "./pages/admin/Login";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path="about" element={<About />} />
               <Route path="about/:id" element={<About />} />
             </Route>
+            <Route path="/login-admin" element={<Login />} />
           </Routes>
         </BrowserRouter>
       </div>
