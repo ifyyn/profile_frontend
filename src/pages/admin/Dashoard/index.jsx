@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Bar, Line } from "react-chartjs-2";
-
+import { useNavigate } from "react-router-dom";
+import { axiosInstance } from "../../../config/axiosInstance";
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const fetchData = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        navigate("/login-admin");
+        return;
+      }
+
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      if (response.status !== 200) {
+        navigate("/login-admin");
+      }
+
+      console.log("Data fetched successfully:", response.data);
+    } catch (error) {
+      console.error("Error during authentication check:", error);
+      navigate("/login-admin");
+    }
+  };
+
+  fetchData();
+
   const barData = {
     labels: [
       "Education",
